@@ -1,0 +1,111 @@
+Lesson 1
+
+Kotlin fundamentals
+
+val
+var
+String
+Int
+Boolean
+functions
+parameters
+return
+if
+when
+loops
+classes
+objects
+null
+?
+?. 
+!!
+Lesson 2
+
+Compose fundamentals
+
+@Composable
+Text
+Button
+Column
+Row
+Box
+Modifier
+padding
+size
+fillMaxSize
+Alignment
+Arrangement
+Lesson 3
+
+Input + Events
+
+TextField
+onValueChange
+Button
+onClick
+Keyboard
+Focus
+Lesson 4
+
+State
+
+remember
+mutableStateOf
+by
+recomposition
+State hoisting
+Lesson 5
+
+Lists
+
+LazyColumn
+items
+Card
+keys
+Lesson 6
+
+Real Expense Tracker
+
+Amount
+Category
+Date
+Add Expense
+Expense list
+Total
+Delete
+Lesson 7
+
+Navigation
+
+Home
+Add Expense
+History
+Settings
+Lesson 8
+
+Data storage
+
+Room / database
+CRUD
+Lesson 9
+
+Backend/API
+
+HTTP
+GET
+POST
+JSON
+API
+Repository
+Lesson 10
+
+Production Android
+
+Architecture
+MVVM
+ViewModel
+Dependency Injection
+Error handling
+Loading
+Testing
+Release APK/AAB

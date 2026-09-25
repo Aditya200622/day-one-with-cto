@@ -1,0 +1,236 @@
+Android Studio
+     ↓
+SDK
+     ↓
+SDK Platform
+     ↓
+Build Tools
+     ↓
+Emulator
+
+
+#SDK =Software Development Kit
+Ye tools aur libraries ka collection hai jo Android app banane ke liye chahiye.
+Simple:
+Android Studio = Workshop
+Android SDK    = Tools
+Your project   = Product
+
+
+
+#Emulator--
+Normally tumhare paas Android phone hota hai:
+
+┌───────────────┐
+│               │
+│   Android     │
+│    Phone      │
+│               │
+└───────────────┘
+
+Emulator same idea ko computer par simulate karta hai:
+
+┌─────────────────┐
+│  Virtual Phone  │
+│                 │
+│    Android      │
+│                 │
+└─────────────────┘
+       ↑
+    Windows PC
+
+Official docs ke according emulator se tum different Android versions aur device configurations test kar sakte ho bina physical device ke.
+#
+ExpenseTracker/
+│
+├── app/=Actual application module.
+│
+├── Gradle Scripts/=Project ko build/configure karne wali files.
+│
+└── ...
+
+#Gradle tumhare source code ko Android app me build karne ka system hai
+Kotlin code
+     ↓
+Gradle
+     ↓
+APK
+     ↓
+Android Emulator
+#MainActivity.kt
+app
+└── kotlin+java
+    └── com.example.expensetracker
+        └── MainActivity.kt
+#Activity = Android app ka ek screen-level entry point.\
+MainActivity
+      ↓
+App starts
+      ↓
+setContent
+      ↓
+Compose UI
+----------------------------------------------------------------------------------
+            package com.example.expensetracker  isko samjhte hai =
+            Ye Kotlin file com.example.expensetracker package ka part hai.
+            Package ek logical namespace hai.
+ import=Mujhe kisi dusri library/package ki functionality use karni hai       
+---------------------
+Kotlin= programing language
+val name = "Aditya"
+val       → variable declaration
+name      → variable name
+"Aditya"  → value
+
+
+#val VS var
+val reference ko reassign nahi karte.
+var ko reassign kar sakte ho.----------------
+code samjhte hai pura--
+
+@Composable
+fun Greeting(
+    name: String,
+    modifier: Modifier = Modifier
+) {
+    ...
+}
+fun= functiona
+greeting = fuction ka nammm 
+-----------------------------------------------
+fun greet(name: String) {
+    println("Hello $name")
+}
+
+greet("aditya")
+---------------------output----------------
+Hello Aditya
+
+----------------
+@Composable
+Jetpack Compose me composable function woh function hota hai jo UI describe/emit kar sakta hai.
+sidha mtlb ye ek composable fucntion hai jo ui desing mai help krega 
+ab compose kaya hota hai --UI ko Kotlin code ke through declaratively describe karna
+-----------------
+$name=Kotlin string interpolation.
+-----------------------------------
+
+var amount by remember { mutableStateOf("") }
+var
+ ↓
+value change ho sakti hai
+
+amount
+ ↓
+variable name
+
+remember
+ ↓
+recomposition ke across value preserve
+
+mutableStateOf("")
+ ↓
+observable state
+---------------------------------
+var
+ ↓
+value change ho sakti hai
+
+amount
+ ↓
+variable name
+
+remember
+ ↓
+recomposition ke across value preserve
+
+mutableStateOf("")
+ ↓
+observable state
+User type karega:
+
+5
+
+then:
+
+amount = "5"
+
+type:
+
+50
+
+then:
+
+amount = "50"
+
+UI state ke according update hoti rahegi.
+
+
+-------------------------------------------------------
+Text
+ ↓
+Text show karta hai
+
+Button
+ ↓
+User action
+
+TextField
+ ↓
+Text input
+
+Image
+ ↓
+Image
+
+Icon
+ ↓
+Small graphical symbol
+
+Checkbox
+ ↓
+Multiple yes/no selection
+
+Switch
+ ↓
+On/Off
+
+Card
+ ↓
+Grouped visual container
+
+Column
+ ↓
+Vertical layout
+
+Row
+ ↓
+Horizontal layout
+
+Box
+ ↓
+Layer/stacking
+
+Spacer
+ ↓
+Empty space
+
+LazyColumn
+ ↓
+Scrollable list
+----------------------------------------
+                Expense Tracker
+                       │
+        ┌──────────────┼──────────────┐
+        ↓              ↓              ↓
+       UI             State          Data
+        │              │              │
+      Compose        remember       Repository
+        │              │              │
+        ↓              ↓              ↓
+     Button         Expenses       Database
+     TextField       Total          / API
+     Card            Loading
+     LazyColumn
+
+

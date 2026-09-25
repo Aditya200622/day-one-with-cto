@@ -1,0 +1,104 @@
+#node -v,npm -v  ----- node.js check krne ki liye ki ye instaal hai ya nhi
+#npm init -y  ---- node.js project intialize krne ki liye 
+npm = node package manger
+init = intialize krna
+-y = sare optionsautomatci salect krna
+
+
+
+
+
+#package.json = isme projact ki (info+ dependencies +srcipts )hoti hai 
+                        ↓
+         Project configuration and dependencies.
+
+#exprees= express ek node.js ka framework hai
+                           ↓
+            iske install krne ki liye "npm install express" command terminal mai chalaya jata hai aur uska result aise kuchata hai 
+                             ↓
+                             ↓
+#node_modules --Yahan installed packages hote hain.
+#package-lock.json --Exact dependency versions ka lock information.
+#const app = express();--
+express()
+   ↓
+Express application
+   ↓
+app
+
+
+
+#app.get(...)---GET request ke liye route define karo.
+GET     → data lena
+POST    → data bhejna/create karna
+PUT     → data update karna
+PATCH   → partial update
+DELETE  → data delete karna
+#app.get("/health", ...)---Ye route/path hai--http://localhost:3000/health
+#(req, res)=
+req=>
+Client kya bhej raha hai uski information.
+method
+URL
+headers
+query
+body
+res=>
+Server client ko kya wapas bhejega.
+req → jo client ne bheja
+res → jo server bhejega
+
+
+#JSON:=JavaScript Object Notation
+ → Data exchange ka common format hai
+
+#app.listen(3000)-Server ko port 3000 par listen karvao.
+  Computer
+   ↓
+  Port 3000
+   ↓
+ Express Server
+#console.log("Server running on http://localhost:3000");
+--Ye terminal me message print karega.
+--Server running on http://localhost:3000\
+
+
+
+Chrome
+  │
+  │ GET /health
+  ↓
+Express Server
+  │
+  │ route match
+  ↓
+app.get("/health")
+  │
+  │ res.json(...)
+  ↓
+JSON Response
+  │
+  ↓
+Chrome
+
+             USER
+               ↓
+        ┌─────────────┐
+        │  FRONTEND   │
+        │ HTML/CSS/JS │
+        └──────┬──────┘
+               │
+          HTTP Request
+               ↓
+        ┌─────────────┐
+        │   BACKEND   │
+        │ Node+Express│
+        └──────┬──────┘
+               │
+           Database
+
+
+
+
+
+
