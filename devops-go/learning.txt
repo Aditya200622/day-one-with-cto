@@ -1,0 +1,11 @@
+Ye 3 lines kya hain?
+package main
+
+→ Ye batata hai ki ye file main package ka part hai.
+
+func main() {
+
+→ main() Go program ka entry point hota hai. Program yahin se execute hona start hota hai.
+Go ka fmt package import kar raha hai. fmt formatting aur printing ke liye use hota hai.
+-----------------------------------
+output ki liye  go run .

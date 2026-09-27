@@ -1,0 +1,593 @@
+Task 7 — Blockchain / React Summary
+1. Hum kya bana rahe hain?
+
+Testnet Crowdfunding DApp
+
+Basic goal:
+
+Crowdfunding DApp
+       ↓
+React Web Interface
+       ↓
+Campaign Title
+       ↓
+Funding Goal
+       ↓
+Progress
+       ↓
+Connect Wallet
+       ↓
+Later → Smart Contract / Blockchain
+
+Abhi blockchain connect nahi kar rahe. Pehle frontend foundation bana rahe hain.
+
+2. Blockchain kya hai?
+
+Blockchain ko simple terms me:
+
+Distributed ledger jahan transactions/data network par decentralized way me record hote hain.
+
+Traditional app:
+
+User
+ ↓
+Frontend
+ ↓
+Backend
+ ↓
+Database
+
+DApp:
+
+User
+ ↓
+Frontend
+ ↓
+Wallet
+ ↓
+Smart Contract
+ ↓
+Blockchain
+3. Web3 kya hai?
+
+Web3 applications blockchain-based systems ke saath interact karti hain.
+
+Hamare project me:
+
+React
+ ↓
+Wallet
+ ↓
+Blockchain
+
+important flow hoga.
+
+4. Smart Contract kya hai?
+
+Smart contract blockchain par deployed program hota hai.
+
+Crowdfunding example:
+
+Campaign created
+      ↓
+Users contribute
+      ↓
+Contract receives funds
+      ↓
+Raised amount increases
+      ↓
+Goal reached
+
+Later hum Solidity use karenge.
+
+Example future concept:
+
+function contribute() public payable {
+    // crowdfunding logic
+}
+
+Abhi Solidity nahi.
+
+5. Testnet kya hai?
+Mainnet → real network / real-value assets
+Testnet → testing/development network
+
+Hum assignment me testnet concept use karenge.
+
+6. Wallet kya hai?
+
+Wallet user ka blockchain account/signing interface manage karta hai.
+
+Example:
+
+MetaMask
+
+Later UI me:
+
+[ Connect Wallet ]
+
+banayenge.
+
+Abhi ye sirf frontend placeholder hai.
+
+7. Humne kaunsa frontend stack use kiya?
+React
++
+Vite
++
+JavaScript / JSX
+
+React UI ke liye, Vite development/build tooling ke liye.
+
+8. Node/npm setup
+
+Humne verify kiya:
+
+Node.js → v24.11.0 ✅
+npm     → 11.6.1 ✅
+9. React project kaise create kiya?
+
+Command:
+
+npm create vite@latest crowdfunding-dapp -- --template react
+
+Vite ne project create kiya.
+
+Linter prompt aaya:
+
+Oxlint
+ESLint
+
+Humne:
+
+ESLint
+
+choose kiya.
+
+10. Dev server
+
+Project create hone ke baad development server run hua:
+
+http://localhost:5173/
+
+Browser me default Vite + React page open hui.
+
+Isse confirm:
+
+React project ✅
+Vite ✅
+Dev server ✅
+11. React project structure
+
+Important folders/files:
+
+crowdfunding-dapp/
+│
+├── node_modules/
+├── public/
+├── src/
+│   ├── assets/
+│   ├── App.css
+│   ├── App.jsx
+│   ├── index.css
+│   └── main.jsx
+│
+├── index.html
+├── package.json
+├── package-lock.json
+├── vite.config.js
+└── eslint.config.js
+12. Sabse important file — App.jsx
+
+Humne:
+
+src/App.jsx
+
+open kiya.
+
+React ka main UI component yahan tha.
+
+13. import
+
+Starter code ki first line:
+
+import { useState } from 'react'
+
+import ka meaning:
+
+Kisi doosre module/package ki functionality apne current file me use karna.
+
+Yahan hum React ka:
+
+useState
+
+import kar rahe hain.
+
+14. useState kya hai?
+
+Sabse important current concept:
+
+useState React component ki changing information ko store aur update karne ka mechanism hai.
+
+Example:
+
+const [count, setCount] = useState(0)
+
+Isme 3 parts hain:
+
+useState(0)
+    ↓
+initial value = 0
+
+count
+    ↓
+current value
+
+setCount
+    ↓
+value update karne wala function
+15. count
+const [count, setCount] = useState(0)
+
+count current state value hai.
+
+Initially:
+
+count = 0
+16. setCount
+setCount(1)
+
+state ko update karta hai.
+
+Example:
+
+setCount(count + 1)
+
+Agar:
+
+count = 0
+
+to:
+
+setCount(0 + 1)
+
+aur new value:
+
+count = 1
+17. Normal variable vs State
+
+Normal variable:
+
+let count = 0
+
+sirf normal JavaScript data hai.
+
+React state:
+
+const [count, setCount] = useState(0)
+
+me React ko state change ka pata hota hai.
+
+Flow:
+
+setCount(...)
+     ↓
+State changes
+     ↓
+React re-renders component
+     ↓
+UI updates
+
+Ye React ka core concept hai.
+
+18. function App()
+
+Starter code me:
+
+function App() {
+
+React functional component define kar raha hai.
+
+Simple meaning:
+
+App ek function component hai jo UI return karega.
+
+Concept:
+
+function
+   ↓
+component
+   ↓
+JSX UI
+19. Component kya hai?
+
+React component ek reusable UI unit hai.
+
+Example:
+
+function Header() {
+  return <h1>Expense Tracker</h1>
+}
+
+Phir:
+
+<Header />
+
+use kar sakte ho.
+
+20. JSX kya hai?
+
+React me:
+
+return (
+  <div>
+    <h1>Hello</h1>
+  </div>
+)
+
+ye normal HTML nahi hai.
+
+Ye JSX hai.
+
+JSX = JavaScript syntax extension jo UI ko declarative form me describe karne deta hai.
+
+21. JSX aur HTML me difference
+
+HTML:
+
+<div class="hero">
+
+JSX:
+
+<div className="hero">
+
+JSX me JavaScript expressions {} ke andar use kar sakte ho.
+
+Example:
+
+const name = "Aditya"
+
+return <h1>Hello {name}</h1>
+
+Output:
+
+Hello Aditya
+22. JSX expression {}
+
+Example:
+
+<img src={reactLogo} />
+
+Yahan:
+
+{reactLogo}
+
+JavaScript variable ko JSX ke andar use kar raha hai.
+
+Similarly:
+
+<h1>{count}</h1>
+
+state value UI me show kar sakta hai.
+
+23. return
+
+React component:
+
+function App() {
+  return (
+    ...
+  )
+}
+
+return batata hai:
+
+Component ko UI me kya render karna hai.
+
+24. React re-render
+
+Suppose:
+
+const [count, setCount] = useState(0)
+
+UI:
+
+<h1>{count}</h1>
+
+button:
+
+<button onClick={() => setCount(count + 1)}>
+  Increase
+</button>
+
+Flow:
+
+Click
+ ↓
+onClick
+ ↓
+setCount(...)
+ ↓
+state changes
+ ↓
+React re-renders
+ ↓
+new count appears
+25. onClick
+
+React button:
+
+<button
+  onClick={() => setCount(count + 1)}
+>
+  Increase
+</button>
+
+onClick event handler hai.
+
+Meaning:
+
+User click kare to ye function run karo.
+
+26. Arrow function
+() => {
+  ...
+}
+
+JavaScript arrow function syntax hai.
+
+Example:
+
+() => console.log("Hello")
+
+Button me:
+
+onClick={() => setCount(count + 1)}
+
+ka meaning:
+
+click hone par ye function execute karo.
+
+27. Crowdfunding DApp me State kaha lagega?
+
+Later:
+
+const [raised, setRaised] = useState(0)
+
+Current raised amount:
+
+raised = 0
+
+Contribution hone par:
+
+setRaised(newAmount)
+
+UI update:
+
+Goal:   1 ETH
+Raised: 0.35 ETH
+28. Wallet state
+
+Later:
+
+const [connected, setConnected] = useState(false)
+
+Initially:
+
+connected = false
+
+UI:
+
+[ Connect Wallet ]
+
+Wallet connect:
+
+setConnected(true)
+
+UI:
+
+Wallet Connected
+29. Important vocabulary
+
+Ab tak tumhe ye terms samajhne chahiye:
+
+Blockchain
+Web3
+DApp
+Smart Contract
+Testnet
+Wallet
+React
+Vite
+Component
+JSX
+import
+function
+return
+state
+useState
+count
+setCount
+onClick
+arrow function
+re-render
+30. Overall React flow
+
+Ye diagram yaad rakho:
+
+App
+ ↓
+Component
+ ↓
+JSX
+ ↓
+Browser UI
+
+State
+ ↓
+changes
+ ↓
+React re-render
+ ↓
+UI updates
+31. Overall DApp flow
+
+Final project me:
+
+User
+ ↓
+React UI
+ ↓
+Connect Wallet
+ ↓
+Wallet
+ ↓
+Smart Contract
+ ↓
+Blockchain Testnet
+32. Current project status
+Node.js             ✅
+npm                 ✅
+React                ✅
+Vite                 ✅
+ESLint               ✅
+Dev Server            ✅
+App.jsx              ✅
+useState basic       ✅
+Blockchain theory    ✅ basic
+Wallet theory        ✅ basic
+Smart Contract       ✅ basic
+
+Next logical concepts:
+
+JSX
+↓
+Components
+↓
+Props
+↓
+useState
+↓
+Events
+↓
+Conditional Rendering
+↓
+Lists
+↓
+Forms
+↓
+CSS
+↓
+Crowdfunding UI
+↓
+ethers.js
+↓
+Wallet
+↓
+Smart Contract
+
+Ab tak Task 7 ka foundation clear hai. Sabse important current concept:
+
+const [value, setValue] = useState(initialValue)
+
+value = current state, setValue = state update function, useState(initialValue) = state create karta hai.

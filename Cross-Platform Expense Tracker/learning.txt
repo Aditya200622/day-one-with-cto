@@ -1,0 +1,927 @@
+1. Flutter kya hai?
+
+Flutter ek cross-platform UI framework hai.
+
+Ek hi codebase se applications bana sakte ho for:
+
+Android
+iOS
+Web
+Windows
+macOS
+Linux
+
+Basic flow:
+
+Dart
+  ↓
+Flutter
+  ↓
+Widgets
+  ↓
+Application
+  ↓
+Android / iOS / Web / Desktop
+Flutter ki language
+Dart
+2. Flutter SDK kya hai?
+
+Flutter SDK me development ke tools hote hain.
+
+Roughly:
+
+Flutter SDK
+├── Flutter framework
+├── Dart SDK
+├── Flutter CLI
+└── Development tools
+
+Humne verify kiya:
+
+flutter --version
+
+Aur tumhara setup:
+
+Flutter 3.47.5
+Dart 3.13.4
+
+✅
+
+3. flutter doctor
+
+Environment check karne ke liye:
+
+flutter doctor
+
+Ye check karta hai:
+
+Flutter
+Windows
+Android Toolchain
+Chrome
+Visual Studio
+Connected Devices
+Network
+
+Tumhare case me initially issues aaye:
+
+cmdline-tools missing
+Android SDK path had spaces
+NDK missing
+
+Humne sab relevant Android issues fix kar diye.
+
+Final setup:
+
+Flutter                 ✅
+Android SDK             ✅
+Command-line Tools      ✅
+NDK                     ✅
+Android Emulator        ✅
+Flutter → Android       ✅
+
+Visual Studio warning abhi hai, lekin wo Windows desktop development ke liye hai; Android Flutter project ke liye required nahi.
+
+4. Android SDK location
+
+Pehle:
+
+C:\Users\Aditya Mishra\AppData\Local\Android\Sdk
+
+problem thi kyunki path me:
+
+Aditya Mishra
+
+hai, yani whitespace hai.
+
+Humne SDK ko move/configure kiya:
+
+D:\Android\Sdk
+
+Aur Flutter ko bataya:
+
+flutter config --android-sdk D:\Android\Sdk
+5. Android Emulator
+
+Tumhara emulator:
+
+sdk gphone64 x86 64
+Android 16
+API 36
+
+hai.
+
+Check karne ke liye:
+
+flutter devices
+
+Output me emulator aa raha tha:
+
+sdk gphone64 x86 64 (mobile)
+Android 16 (API 36)
+
+✅
+
+6. Flutter project kaise banaya?
+
+Humne command use ki:
+
+flutter create expense_tracker
+
+Flutter ne automatically complete project generate kiya.
+
+Structure roughly:
+
+expense_tracker/
+│
+├── android/
+├── ios/
+├── lib/
+├── test/
+├── web/
+├── windows/
+├── macos/
+├── linux/
+│
+├── pubspec.yaml
+├── pubspec.lock
+└── README.md
+7. Sabse important folder: lib
+
+Flutter application ka main Dart code generally:
+
+lib/
+
+ke andar hota hai.
+
+Tumhare project me:
+
+lib/
+└── main.dart
+main.dart
+
+Ye application ka main Dart entry file hai.
+
+Android native project me humne:
+
+MainActivity.kt
+
+dekha tha.
+
+Flutter me equivalent starting code:
+
+main.dart
+8. Flutter app run kaise hota hai?
+
+Project folder ke andar:
+
+flutter run
+
+Tumhara app successfully run hua.
+
+Output me:
+
+Built ... app-debug.apk
+Installing ...
+Syncing files ...
+
+aaya.
+
+✅ Flutter APK build hua
+✅ Emulator me install hua
+✅ App run hua
+
+9. Flutter ka core concept — Widget
+
+Flutter ka sabse important concept:
+
+Everything is a Widget.
+
+Examples:
+
+Text
+Button
+Image
+Column
+Row
+Scaffold
+AppBar
+MaterialApp
+Center
+Container
+
+sab widgets hain.
+
+Widget ko basic UI building block samjho.
+
+10. Widget Tree
+
+Suppose:
+
+Scaffold(
+  appBar: AppBar(
+    title: Text('Expense Tracker'),
+  ),
+  body: Text('Welcome'),
+)
+
+Isko tree ki tarah samjho:
+
+Scaffold
+│
+├── AppBar
+│   └── Text
+│
+└── Text
+
+Ye:
+
+Widget Tree
+
+hai.
+
+11. main()
+
+Flutter app:
+
+void main() {
+  runApp(const MyApp());
+}
+main()
+
+Dart program ka entry point.
+
+Simple:
+
+App start
+   ↓
+main()
+12. runApp()
+runApp(const MyApp());
+
+Meaning:
+
+Flutter ko bolo MyApp ko application ka root widget bana ke run karo.
+
+Flow:
+
+main()
+  ↓
+runApp()
+  ↓
+MyApp
+  ↓
+Widget Tree
+  ↓
+Screen
+13. import
+
+Tumhare code me:
+
+import 'package:flutter/material.dart';
+
+Meaning:
+
+Flutter Material widgets/library ko available karo.
+
+Isi ki wajah se hum use kar sakte hain:
+
+MaterialApp
+Scaffold
+AppBar
+Text
+Button
+14. class
+
+Tumhare code me:
+
+class MyApp extends StatelessWidget {
+
+class ka matlab:
+
+Ek new class define kar rahe ho.
+
+class
+  ↓
+MyApp
+
+MyApp class ka naam hai.
+
+15. extends
+class MyApp extends StatelessWidget
+
+Meaning:
+
+MyApp, StatelessWidget se inherit karta hai.
+
+Tree:
+
+Widget
+  ↑
+StatelessWidget
+  ↑
+MyApp
+
+Is concept ko:
+
+Inheritance
+
+kehte hain.
+
+16. Widget
+
+Flutter ka base UI concept.
+
+Simple:
+
+Widget = UI ka building block
+17. StatelessWidget
+
+Flutter ka widget type jo mutable internal state manage nahi karta.
+
+class MyApp extends StatelessWidget {
+
+Matlab:
+
+MyApp ek stateless Flutter widget hai.
+
+State kya hoti hai?
+
+Aisi information jo app chalne ke time change ho sakti hai aur UI ko affect karti hai.
+
+Example:
+
+Counter = 0
+Counter = 1
+Counter = 2
+
+Counter ki changing value = state.
+
+18. Constructor
+
+Tumhare code me:
+
+const MyApp({super.key});
+
+Ye MyApp ka constructor hai.
+
+Constructor ka kaam:
+
+Object/widget banate waqt initialize karna.
+
+Jab likha:
+
+MyApp()
+
+to constructor call hua.
+
+19. const
+const MyApp();
+
+const compile-time constant object/value ke liye use hota hai jab possible ho.
+
+Flutter me common:
+
+const Text("Hello")
+
+Fixed UI values ke liye.
+
+Rough rule:
+
+Fixed/constant → const useful
+Changing data  → const nahi
+20. super.key
+const MyApp({super.key});
+
+key Flutter widget identity/element tracking ke liye use ho sakti hai.
+
+super.key ka meaning:
+
+Parent class ke key parameter ko directly forward karo.
+
+Expanded old-style understanding:
+
+const MyApp({Key? key}) : super(key: key);
+
+Modern Dart syntax:
+
+{super.key}
+
+shorter hai.
+
+21. {} in constructor
+const MyApp({super.key});
+
+Yahan {} named optional parameter ko represent karta hai.
+
+Example:
+
+void greet({String name = "Aditya"}) {
+}
+
+call:
+
+greet(name: "Rahul");
+22. @override
+
+Tumhare code me:
+
+@override
+Widget build(BuildContext context) {
+
+@override ka meaning:
+
+Parent class ke existing method ka apna implementation de rahe ho.
+
+StatelessWidget me build() method important hota hai.
+
+23. build()
+Widget build(BuildContext context) {
+
+Basic meaning:
+
+Ye widget UI me kya banayega?
+
+Flow:
+
+MyApp
+ ↓
+build()
+ ↓
+UI description
+ ↓
+Widget Tree
+24. BuildContext
+BuildContext context
+
+Beginner level:
+
+Current widget ki location/relationship ke baare me Flutter ko information deta hai.
+
+Later context important hoga for:
+
+Navigation
+Theme
+Inherited widgets
+MediaQuery
+ScaffoldMessenger
+
+etc.
+
+25. MaterialApp
+MaterialApp(...)
+
+Application-level Material setup.
+
+Common properties:
+
+title
+theme
+home
+routes
+
+Example:
+
+MaterialApp(
+  title: 'Expense Tracker',
+  home: ...
+)
+26. Scaffold
+Scaffold(...)
+
+Ek standard screen structure provide karta hai.
+
+Common parts:
+
+Scaffold
+├── appBar
+├── body
+├── floatingActionButton
+├── drawer
+└── bottomNavigationBar
+27. AppBar
+AppBar(
+  title: Text('Expense Tracker'),
+)
+
+Top application bar.
+
+Visual:
+
+┌──────────────────────────┐
+│ Expense Tracker          │
+└──────────────────────────┘
+28. body
+Scaffold(
+  body: ...
+)
+
+body = screen ka main content.
+
+29. Center
+Center(
+  child: Text('Welcome'),
+)
+
+Child ko center karta hai.
+
+30. child
+
+Jab ek widget ke andar single child ho:
+
+Center(
+  child: Text('Hello'),
+)
+
+Use:
+
+child
+31. children
+
+Jab multiple widgets ho:
+
+Column(
+  children: [
+    Text('Hello'),
+    Text('World'),
+  ],
+)
+
+Use:
+
+children
+
+Important:
+
+1 widget  → child
+many      → children
+32. Column
+Column(
+  children: [
+    Text('Expense Tracker'),
+    Text('Track spending'),
+  ],
+)
+
+Children ko vertical direction me arrange karta hai.
+
+Expense Tracker
+       ↓
+Track spending
+33. Row
+Row(
+  children: [
+    Text('Food'),
+    Text('₹300'),
+  ],
+)
+
+Children horizontally arrange hote hain.
+
+Food       ₹300
+
+Remember:
+
+Column → Vertical
+Row    → Horizontal
+34. Container
+
+Common layout/styling wrapper:
+
+Container(
+  padding: EdgeInsets.all(16),
+  child: Text('Hello'),
+)
+
+Size, padding, color, decoration etc. ke liye useful.
+
+35. Padding
+Padding(
+  padding: EdgeInsets.all(16),
+  child: Text('Hello'),
+)
+
+Content ke around spacing.
+
+36. SizedBox
+SizedBox(
+  height: 20,
+)
+
+Simple fixed space.
+
+Common:
+
+SizedBox(height: 12)
+SizedBox(height: 16)
+SizedBox(height: 24)
+37. Text
+Text('Expense Tracker')
+
+Screen par text display karta hai.
+
+Styling:
+
+Text(
+  'Expense Tracker',
+  style: TextStyle(
+    fontSize: 28,
+    fontWeight: FontWeight.bold,
+  ),
+)
+38. ElevatedButton
+ElevatedButton(
+  onPressed: () {
+    debugPrint('Clicked');
+  },
+  child: Text('Add Expense'),
+)
+
+Button ke do important parts:
+
+child
+  ↓
+kya dikhega
+
+onPressed
+  ↓
+click hone par kya hoga
+39. Callback / Event
+onPressed: () {
+  debugPrint('Clicked');
+}
+
+Meaning:
+
+Button click hone ke baad ye code execute karo.
+
+Flow:
+
+User click
+   ↓
+onPressed
+   ↓
+Code
+40. State
+
+State = changing information that affects UI.
+
+Examples:
+
+counter
+username
+amount
+selected category
+loading
+expense list
+dark mode
+
+Example:
+
+Amount = 500
+    ↓
+User changes
+    ↓
+Amount = 700
+
+Ye state change hai.
+
+41. Stateless vs Stateful
+StatelessWidget
+UI based on current inputs
+No own mutable state
+
+Example:
+
+class MyApp extends StatelessWidget
+StatefulWidget
+
+Jab UI ko changing state manage karni ho.
+
+Example:
+
+Counter
+Form
+Toggle
+Loading
+Text input
+42. Flutter app ka overall flow
+
+Ab tum ye diagram yaad rakho:
+
+main()
+  ↓
+runApp()
+  ↓
+Root Widget
+  ↓
+MaterialApp
+  ↓
+Scaffold
+  ↓
+AppBar + Body
+  ↓
+Column / Row / etc.
+  ↓
+Text / Button / Image / Input
+43. Actual Expense Tracker ka future flow
+
+Hum eventually banayenge:
+
+Expense Tracker
+│
+├── AppBar
+│
+├── Total Spent
+│
+├── Add Expense
+│
+├── Expense Form
+│   ├── Title
+│   ├── Amount
+│   ├── Category
+│   └── Save
+│
+└── Expense List
+    ├── Food
+    ├── Travel
+    ├── Shopping
+    └── etc.
+44. Assignment me ab tak progress
+
+Task:
+
+Create Flutter project
+        ✅
+
+Run starter application
+        ✅
+
+Convert starter screen
+        ⏳ Learning/next
+
+Add project title
+        ⏳
+
+Flutter app successfully running
+        ✅
+
+Infrastructure side completely ready hai.
+
+45. Important Flutter vocabulary
+
+Ye terms ab tumhe recognize karne chahiye:
+
+Flutter
+Dart
+SDK
+Widget
+Widget Tree
+main()
+runApp()
+class
+extends
+StatelessWidget
+StatefulWidget
+Constructor
+const
+Key
+super.key
+@override
+build()
+BuildContext
+MaterialApp
+Scaffold
+AppBar
+body
+child
+children
+Column
+Row
+Center
+Container
+Padding
+SizedBox
+Text
+Button
+onPressed
+State
+46. Sabse important mental model
+Dart
+Language
+Flutter
+Framework
+Widget
+UI building block
+Widget Tree
+Widgets ka hierarchy
+build()
+Widget ka UI description
+State
+Changing data that affects UI
+Event
+User action / callback
+MaterialApp
+App-level Material setup
+Scaffold
+Screen structure
+Column
+Vertical layout
+Row
+Horizontal layout
+child
+Single child
+children
+Multiple children
+47. Abhi tumhe kya nahi padhna hai
+
+Abhi inpe mat jao:
+
+Provider
+Riverpod
+Bloc
+GetX
+Clean Architecture
+Firebase
+Room
+REST API
+Repository pattern
+Dependency Injection
+
+Pehle foundation:
+
+Dart
+ ↓
+Widgets
+ ↓
+Layout
+ ↓
+Events
+ ↓
+State
+ ↓
+Forms
+ ↓
+Lists
+
+strong karo.
+
+48. Next learning order
+
+Ab hum Flutter ko is sequence me karenge:
+
+1. Dart Basics
+   ↓
+2. Widget
+   ↓
+3. StatelessWidget
+   ↓
+4. StatefulWidget
+   ↓
+5. build()
+   ↓
+6. MaterialApp
+   ↓
+7. Scaffold
+   ↓
+8. Text
+   ↓
+9. Column / Row / Container
+   ↓
+10. Button
+   ↓
+11. TextField
+   ↓
+12. Events
+   ↓
+13. State
+   ↓
+14. Lists
+   ↓
+15. Expense Tracker
+
+Abhi tak ka foundation itna hi hai. Tumhare current main.dart ko dekhkar tumhe kam se kam ye explain kar paana chahiye:
+
+void main() {
+  runApp(const MyApp());
+}
+
+means:
+
+Dart program start hota hai → main() execute hota hai → runApp() Flutter ko root widget deta hai → MyApp app ka root widget hai.
+
+Aur:
+
+class MyApp extends StatelessWidget
+
+means:
+
+MyApp ek custom Flutter widget hai jo StatelessWidget se inherit karta hai.
+
+Aur:
+
+Widget build(BuildContext context)
+
+means:
+
+MyApp ka UI describe karne wala build method.

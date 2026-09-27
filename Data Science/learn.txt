@@ -1,0 +1,360 @@
+Task 8 — Data Science Summary
+1. Data Science kya hai?
+
+Data Science ka basic purpose:
+
+Data ko collect, clean, inspect, analyze aur eventually use karke useful information/predictions nikalna.
+
+Basic flow:
+
+Data
+ ↓
+Load
+ ↓
+Inspect
+ ↓
+Clean
+ ↓
+Analyze
+ ↓
+Visualize
+ ↓
+Predict
+
+Is task me hum abhi Load + Inspect stage tak gaye.
+
+2. Python environment
+
+Humne verify kiya:
+
+Python 3.13.7 ✅
+pip 25.2 ✅
+
+Commands:
+
+python --version
+pip --version
+3. Project folder
+
+Humne dedicated folder banaya:
+
+D:\learining\Data Science\sales-analytics
+
+Structure eventually:
+
+sales-analytics/
+├── .venv/
+└── sales_data.csv
+4. Virtual Environment
+
+Command:
+
+python -m venv .venv
+
+Virtual environment ka purpose:
+
+Project ke Python packages ko isolated rakhna.
+
+Activate:
+
+.\.venv\Scripts\Activate.ps1
+
+Prompt me:
+
+(.venv)
+
+aaya, matlab environment active hai.
+
+5. Libraries install ki
+
+Command:
+
+pip install pandas matplotlib jupyter
+Pandas
+
+Data analysis aur table-like data handle karne ke liye.
+
+Matplotlib
+
+Graphs/charts ke liye.
+
+Jupyter
+
+Interactive notebooks me analysis karne ke liye.
+
+6. Dataset
+
+Humne Sample Superstore sales dataset select kiya.
+
+File:
+
+sales_data.csv
+
+Dataset me sales-related information hai, jaise:
+
+Order ID
+Order Date
+Customer
+Region
+Category
+Sub-Category
+Sales
+Quantity
+Discount
+Profit
+7. Jupyter Notebook
+
+Start kiya:
+
+jupyter notebook
+
+Browser me:
+
+localhost:8888
+
+open hua.
+
+Phir Python 3 kernel ke saath notebook create ki.
+
+8. Pandas import
+
+First code:
+
+import pandas as pd
+
+Meaning:
+
+Pandas library import karo aur short name pd use karo.
+
+Isliye baad me:
+
+pd.read_csv(...)
+
+likh sakte hain.
+
+9. CSV load karna
+
+Code:
+
+df = pd.read_csv("sales_data.csv")
+
+Breakdown:
+
+pd.read_csv()
+      ↓
+CSV file read
+      ↓
+DataFrame
+      ↓
+df
+df kya hai?
+
+df = DataFrame.
+
+DataFrame ko simple language me:
+
+Python ke andar spreadsheet/table jaisa structured data object.
+
+10. df.head()
+
+Code:
+
+df.head()
+
+Purpose:
+
+Dataset ki first 5 rows inspect karna.
+
+Isse hume confirm hua ki data correctly load hua hai.
+
+Output:
+
+5 rows × 21 columns
+11. df.info()
+
+Code:
+
+df.info()
+
+Isne diya:
+
+RangeIndex: 10800 entries
+Data columns (total 21 columns)
+
+Aur har column ka:
+
+Column name
+Non-null count
+Dtype
+
+dikhaya.
+
+12. Important data types
+
+Dataset me mostly text fields:
+
+str
+
+aur numerical fields:
+
+float64
+
+the.
+
+Important numerical columns:
+
+Sales
+Quantity
+Discount
+Profit
+float64
+
+Python/Pandas ka numeric floating-point data type.
+
+Example:
+
+200.50
+0.20
+-48.95
+13. Missing values observation
+
+df.info() se pata chala ki kuch columns me total rows se kam non-null values hain.
+
+Example:
+
+Total rows = 10800
+
+while:
+
+Postal Code = 9983 non-null
+
+So Postal Code me missing values exist karti hain.
+
+Ye data cleaning ka future example hai.
+
+14. df.shape
+
+Code:
+
+df.shape
+
+Output:
+
+(10800, 21)
+
+Iska meaning:
+
+10800 → rows
+21    → columns
+
+Important rule:
+
+df.shape
+      ↓
+(rows, columns)
+15. Assignment ke exact requirements
+
+Screenshot me practical task tha:
+
+Select the dataset
+Create Python project/notebook
+Load dataset
+Inspect data
+Check columns, rows and basic data types
+
+Humne sab complete kiya:
+
+✅ Dataset selected
+✅ Python project
+✅ Virtual environment
+✅ Jupyter Notebook
+✅ Dataset loaded
+✅ First rows inspected
+✅ Columns inspected
+✅ Rows inspected
+✅ Data types inspected
+16. Important Pandas commands learned
+
+Ab tak:
+
+import pandas as pd
+df = pd.read_csv("sales_data.csv")
+df.head()
+df.info()
+df.shape
+17. In commands ka quick cheat sheet
+pd.read_csv()
+    ↓
+CSV load
+
+df
+    ↓
+DataFrame
+
+df.head()
+    ↓
+First 5 rows
+
+df.info()
+    ↓
+Columns + types + non-null
+
+df.shape
+    ↓
+Rows + columns
+18. Complete project flow
+
+Tumhara current workflow:
+
+Python
+ ↓
+Virtual Environment
+ ↓
+Pandas
+ ↓
+Jupyter
+ ↓
+sales_data.csv
+ ↓
+DataFrame
+ ↓
+head()
+ ↓
+info()
+ ↓
+shape()
+19. Current project structure
+sales-analytics/
+│
+├── .venv/
+│
+└── sales_data.csv
+
+Notebook browser se create hua hai; later ise proper project file ke saath save kar sakte hain, e.g.:
+
+analysis.ipynb
+20. Next-level Data Science concepts
+
+Abhi assignment yahin complete hua hai. Future me isi project me:
+
+Data Cleaning
+      ↓
+EDA
+      ↓
+Statistics
+      ↓
+Charts
+      ↓
+Sales Analysis
+      ↓
+Feature Engineering
+      ↓
+Prediction Model
+      ↓
+Dashboard
+
+seekh sakte ho.
+
+Task 8 status
+
+Data Science — COMPLETE ✅

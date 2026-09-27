@@ -38,3 +38,23 @@ Flutter SDK
 ├── Flutter CLI
 └── Development tools
 #Flutter docs bhi Android Studio + Android Emulator ko Flutter Android development ke valid setup ke roop me document karti hain.
+#class MyApp extends StatelessWidget 
+class
+  ↓
+ek class define kar rahe ho
+
+MyApp
+  ↓
+class ka naam
+
+extends
+  ↓
+kisi existing class se inherit kar raha hai
+
+StatelessWidget
+  ↓
+Flutter ka widget type
+=---------------------------------
+. Widget kya hai?
+
+Flutter me Widget UI ka basic building block hai.

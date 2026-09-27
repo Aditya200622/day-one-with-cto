@@ -1,0 +1,58 @@
+Crowdfunding DApp
+        ↓
+Web Interface
+        ↓
+Campaign Title
+        ↓
+Funding Goal
+        ↓
+Current Progress
+        ↓
+Connect Wallet
+        ↓
+Later: Smart Contract
+-----------------------------------------
+User
+ ↓
+Frontend
+ ↓
+Backend
+ ↓
+Database
+---------------------
+User
+ ↓
+Web Interface
+ ↓
+Wallet
+ ↓
+Blockchain
+ ↓
+Smart Contract
+---------------------------
+#Web3 apps generally blockchain-based services ke saath interact karti hain.
+Frontend
+   ↓
+Wallet
+   ↓
+Blockchain
+------------------
+Campaign created
+       ↓
+People contribute
+       ↓
+Contract receives funds
+       ↓
+Progress increases
+       ↓
+Goal reached
+---------------------------------
+Mainnet = real network / real-value assets.
+
+Testnet = development/testing network.
+----------------------------------------
+Frontend → React + Vite
+Blockchain → later Solidity
+Web3 → later ethers.js
+Wallet → later MetaMask
+
